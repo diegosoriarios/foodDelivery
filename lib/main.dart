@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:food/restaurant.dart';
+import 'package:food/restaurantPage.dart';
 import 'package:food/starDisplay.dart';
 import 'package:food/Pages/Profile.dart';
+import 'package:food/Restaurant.dart';
 
 void main() => runApp(MyApp());
 List<String> buttonsTitle = ["All", "Popular", "Dessert", "Snack", "Fast Food"];
-List<String> restaurantList = [
+/*List<String> restaurantList = [
   "American Restaurant",
   "Turkish Restaurant",
   "Indian Restaurant",
   "Japanese Restaurant"
+];*/
+List<Restaurante> restaurantList = [
+  Restaurante("American Restaurant", "assets/imgs/meat.jpg", "Fast Food"),
+  Restaurante("Turkish Restaurant", "assets/imgs/meat.jpg", "Fast Food"),
+  Restaurante("Indian Restaurant", "assets/imgs/meat.jpg", "Popular"),
+  Restaurante("Japanese Restaurant", "assets/imgs/meat.jpg", "Japanese"),
 ];
 
 class MyApp extends StatelessWidget {
@@ -26,7 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Home(),
       routes: {
-        'restaurant': (ctx) => RestaurantPage(),
+        ExtractArgumentsScreen.routeName: (context) => ExtractArgumentsScreen(),
         'profile': (ctx) => Profile()
       },
     );
@@ -175,7 +182,7 @@ class Home extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: restaurantList.length,
                     itemBuilder: (context, id) {
-                      return SmallContainer(text: restaurantList[id]);
+                      return SmallContainer(nome: restaurantList[id].nome, imagem: restaurantList[id].imagem, categoria: restaurantList[id].categoria);
                     },
                   ),
                 ),
@@ -260,15 +267,21 @@ class LargeContainer extends StatelessWidget {
 }
 
 class SmallContainer extends StatelessWidget {
-  final String text;
-  const SmallContainer({Key key, this.text}) : super(key: key);
+  final String nome;
+  final String imagem;
+  final String categoria;
+  const SmallContainer({Key key, this.nome, this.imagem, this.categoria}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => Navigator.pushNamed(context, 'restaurant'),
+        onTap: () => Navigator.push(context, MaterialPageRoute(
+          builder: (context) => ExtractArgumentsScreen(),
+          settings: RouteSettings(arguments: ScreenArguments(nome, imagem))
+          )
+        ),
         child: Container(
           height: 179,
           width: MediaQuery.of(context).size.width / 2.5,
@@ -289,14 +302,14 @@ class SmallContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ClipRRect(
-                child: Image.asset("assets/imgs/meat.jpg"),
+                child: Image.asset(imagem),
                 borderRadius: BorderRadius.circular(15.0),
               ),
               SizedBox(
                 height: 9.0,
               ),
               Text(
-                text,
+                nome,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
               SizedBox(
