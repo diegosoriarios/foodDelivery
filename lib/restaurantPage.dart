@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:food/Pages/MainPage.dart';
 import 'package:food/starDisplay.dart';
+import 'Modelos/Restaurant.dart';
 import 'package:food/Component/RoundButton.dart';
 
 class ScreenArguments {
-  final String nome;
-  final String imagem;
+  final Restaurante restaurante;
 
-  ScreenArguments(this.nome, this.imagem);
+  ScreenArguments(this.restaurante);
 }
 
 class ExtractArgumentsScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(args.imagem),
+                  image: AssetImage(args.restaurante.imagem),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -38,7 +39,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
                     children: <Widget>[
                       RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
                       Spacer(),
-                      RoundButton(icon: Icons.favorite_border),
+                      RoundButton(icon: Icons.favorite_border, onTap: () {favoritos.add(args.restaurante);},),
                       SizedBox(width: 5.0),
                       RoundButton(icon: Icons.ac_unit),
                     ],
@@ -90,7 +91,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      args.nome,
+                      args.restaurante.nome,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,

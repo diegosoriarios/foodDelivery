@@ -22,7 +22,7 @@ class Profile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
+                /*children: <Widget>[
                   Row(
                     children: <Widget>[
                       RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
@@ -45,7 +45,7 @@ class Profile extends StatelessWidget {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
                     ),
                   ),
-                ],
+                ],*/
               ),
             ),
             Align(
