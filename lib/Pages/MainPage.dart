@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food/restaurantPage.dart';
+import 'package:food/Pages/RestaurantPage.dart';
 import 'package:food/starDisplay.dart';
 import 'package:food/Pages/Profile.dart';
 import 'package:food/Modelos/Restaurant.dart';
+import 'package:food/data.dart';
 
 void main() => runApp(MyApp());
-List<String> buttonsTitle = ["All", "Popular", "Dessert", "Snack", "Fast Food"];
-/*List<String> restaurantList = [
-  "American Restaurant",
-  "Turkish Restaurant",
-  "Indian Restaurant",
-  "Japanese Restaurant"
-];*/
-List<Restaurante> restaurantList = [
-  Restaurante("American Restaurant", "assets/imgs/meat.jpg", "Fast Food"),
-  Restaurante("Turkish Restaurant", "assets/imgs/meat.jpg", "Fast Food"),
-  Restaurante("Indian Restaurant", "assets/imgs/meat.jpg", "Popular"),
-  Restaurante("Japanese Restaurant", "assets/imgs/meat.jpg", "Japanese"),
-];
-
-List<Restaurante> favoritos = [];
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -43,6 +29,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  static final date = new DateTime.now();
+  String currentDay = date.day.toString() + "/" + date.month.toString() + "/" + date.year.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,9 +83,9 @@ class Home extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text("13/07/2019"),
+                          Text(currentDay),
                           Text(
-                            "What would you like to EAT ?",
+                            "O que você gostaria de comer hoje?",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 17),
                           ),

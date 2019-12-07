@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food/Pages/FavoritesPage.dart';
 import 'package:food/Pages/RestaurantListPage.dart';
-import 'Pages/Profile.dart';
-import 'restaurantPage.dart';
-import 'Pages/MainPage.dart';
+import 'package:food/Pages/Profile.dart';
+import 'package:food/Pages/RestaurantPage.dart';
+import 'package:food/Pages/MainPage.dart';
 
 void main() {
   runApp(MaterialApp(

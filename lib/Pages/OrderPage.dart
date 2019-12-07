@@ -1,21 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:food/Modelos/Produtos.dart';
 import 'package:food/Pages/MainPage.dart';
 import 'package:food/starDisplay.dart';
-import 'Modelos/Restaurant.dart';
+import 'package:food/Modelos/Restaurant.dart';
 import 'package:food/Component/RoundButton.dart';
+import 'package:food/data.dart';
+import 'package:food/Component/ProductContainer.dart';
 
-class ScreenArguments {
-  final Restaurante restaurante;
+class ProductsArguments {
+  final Produtos produtos;
 
-  ScreenArguments(this.restaurante);
+  ProductsArguments(this.produtos);
 }
 
-class ExtractArgumentsScreen extends StatelessWidget {
+class ExtractProductsArgumentsScreen extends StatelessWidget {
   static const routeName = '/extractArguments';
 
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+    final ProductsArguments args = ModalRoute.of(context).settings.arguments;
+    
+    List<Widget> list = new List<Widget>();
+    Produtos item = args.produtos;
+    
+    for(var i = 0; i < item.ingredientes.length; i++){
+      list.add(
+        new Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+              Text(item.ingredientes[i],  style: TextStyle( fontWeight: FontWeight.w500, fontSize: 20)),
+              //Text(item[i].preco.toString(),  style: TextStyle( fontWeight: FontWeight.w500, fontSize: 20)),
+          ],
+          
+        )
+      );
+    }
+
 
     return Scaffold(
       body: SafeArea(
@@ -27,7 +48,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(args.restaurante.imagem),
+                  image: AssetImage(args.produtos.imagem),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -39,7 +60,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
                     children: <Widget>[
                       RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
                       Spacer(),
-                      RoundButton(icon: Icons.favorite_border, onTap: () {favoritos.add(args.restaurante);},),
+                      //RoundButton(icon: Icons.favorite_border, onTap: () {favoritos.add(args.restaurante);},),
                       SizedBox(width: 5.0),
                       RoundButton(icon: Icons.ac_unit),
                     ],
@@ -91,7 +112,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      args.restaurante.nome,
+                      args.produtos.nome,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
@@ -163,40 +184,30 @@ class ExtractArgumentsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    
+                    /**
+                     * INGREDIENTES
+                     */
+                    /*
+                    Text("Pratos", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                    SingleChildScrollView(
+                      child: Column(
+                        children: list
+                      ),
+                    ),*/
+                    SizedBox(height: 15.0),
                     Container(
-                      margin:
-                          EdgeInsets.symmetric(vertical: 11, horizontal: 21),
-                      padding: EdgeInsets.all(15),
-                      color: Color(0xfff7f8fc),
-                      child: Row(
-                        children: <Widget>[
-                          Flexible(
-                            child: ClipRRect(
-                              child: Image.asset('assets/imgs/lobster.jpg'),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Flexible(
-                            child: ClipRRect(
-                              child: Image.asset('assets/imgs/meat.jpg'),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Flexible(
-                            child: ClipRRect(
-                              child: Image.asset('assets/imgs/lobster.jpg'),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          )
-                        ],
+                      height: 181,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: args.produtos.ingredientes.length,
+                        itemBuilder: (context, id) {
+                          return Text(args.produtos.ingredientes[id],);
+                        },
                       ),
                     ),
+
+
                     Spacer(),
                     InkWell(
                       onTap: () {},
@@ -214,7 +225,7 @@ class ExtractArgumentsScreen extends StatelessWidget {
                           children: <Widget>[
                             Spacer(),
                             Text(
-                              "Call this restaurant",
+                              "Fazer Pedido",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: Colors.white,
@@ -239,3 +250,34 @@ class ExtractArgumentsScreen extends StatelessWidget {
     );
   }
 }
+
+Widget _buildList() => ListView(
+      children: [
+        _tile('CineArts at the Empire', '85 W Portal Ave', Icons.theaters),
+        _tile('The Castro Theater', '429 Castro St', Icons.theaters),
+        _tile('Alamo Drafthouse Cinema', '2550 Mission St', Icons.theaters),
+        _tile('Roxie Theater', '3117 16th St', Icons.theaters),
+        _tile('United Artists Stonestown Twin', '501 Buckingham Way',
+            Icons.theaters),
+        _tile('AMC Metreon 16', '135 4th St #3000', Icons.theaters),
+        Divider(),
+        _tile('Kescaped_code#39;s Kitchen', '757 Monterey Blvd', Icons.restaurant),
+        _tile('Emmyescaped_code#39;s Restaurant', '1923 Ocean Ave', Icons.restaurant),
+        _tile(
+            'Chaiya Thai Restaurant', '272 Claremont Blvd', Icons.restaurant),
+        _tile('La Ciccia', '291 30th St', Icons.restaurant),
+      ],
+    );
+
+ListTile _tile(String title, String subtitle, IconData icon) => ListTile(
+      title: Text(title,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+          )),
+      subtitle: Text(subtitle),
+      leading: Icon(
+        icon,
+        color: Colors.blue[500],
+      ),
+    );
