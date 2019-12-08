@@ -7,8 +7,9 @@ app.use(bodyParser.urlencoded({ extended : true }))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/restaurantes', (req, res) => {})
+const restauranteRoute = require('./Router/Restaurantes')
+const pedidosRoute = require('./Router/Pedidos')
 
-app.get('/pedidos', (req, res) => {})
+app.get('/restaurantes', restauranteRoute)
 
-app.post('/restaurantes', (req, res) => {})
+app.get('/pedidos', pedidosRoute)
