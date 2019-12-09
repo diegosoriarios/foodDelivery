@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/Modelos/Produtos.dart';
 import 'package:food/Pages/OrderPage.dart';
 import 'package:food/Pages/RestaurantPage.dart';
+import 'package:intl/intl.dart';
 
 class ProductContainer extends StatelessWidget {
   //final String nome;
@@ -9,7 +10,8 @@ class ProductContainer extends StatelessWidget {
   //final String categoria;
   Produtos produtos;
   ProductContainer({Key key, this.produtos}) : super(key: key);
-
+  NumberFormat formater = NumberFormat("#00.00");
+ 
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -72,7 +74,7 @@ class ProductContainer extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    produtos.preco.toString(),
+                    "R\$ " + formater.format(produtos.preco).toString(),
                     style: TextStyle(color: Colors.grey[400], fontWeight: FontWeight.bold),
                   )
                 ],

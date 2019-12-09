@@ -5,7 +5,7 @@ const restauranteController = require('../Controller/Restaurantes')
 
 router.get('/getAll', restauranteController.getAll)
 
-router.post('/create', restauranteController.createRestaurant)
+//router.post('/create', restauranteController.createRestaurant)
 
 router.delete('/remove', restauranteController.removeRestaurant)
 

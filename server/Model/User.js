@@ -5,6 +5,8 @@ const userModel = new Schema({
     nome: String,
     email: String,
     celular: Numeric,
+    endereco: String,
+    cep: String,
     cpf: String,
     senha: String
 })

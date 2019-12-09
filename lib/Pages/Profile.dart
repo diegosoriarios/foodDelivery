@@ -27,6 +27,18 @@ class Profile extends StatelessWidget {
               onTap: () => showInputDialog(context, "Telefone", usuario.celular),
             ),
             ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Endereço"),
+              subtitle: Text(usuario.endereco),
+              onTap: () => showInputDialog(context, "Endereço", usuario.endereco),
+            ),
+            ListTile(
+              leading: Icon(Icons.markunread_mailbox),
+              title: Text("CEP"),
+              subtitle: Text(usuario.cep),
+              onTap: () => showInputDialog(context, "CEP", usuario.cep),
+            ),
+            ListTile(
               leading: Icon(Icons.fingerprint),
               title: Text("CPF"),
               subtitle: Text(usuario.cpf),
@@ -50,7 +62,10 @@ showInputDialog(BuildContext context, String label, String value) {
 
   Widget okButton = FlatButton(
     child: Text("OK"),
-    onPressed: () { },
+    onPressed: () => {
+      usuario.updateUser(label, _textFieldController.text),
+      Navigator.of(context).pop()
+    }
   );
 
   Widget cancelButton = FlatButton(

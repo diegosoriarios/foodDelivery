@@ -4,6 +4,12 @@ exports.getAll = (req, res, next) => {
     
 }
 
+exports.removeRestaurant = (req, res, next) => {
+
+}
+
+exports.updateRestaurant = (req, res, next) => {}
+
 exports.login = (req, res, next) => {
     const name = req.body.name
     const password = req.body.password
