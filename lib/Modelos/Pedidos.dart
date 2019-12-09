@@ -2,10 +2,10 @@ import 'package:food/Modelos/Produtos.dart';
 
 class Pedidos {
   DateTime pedido;
-  List<Produtos> produto;
+  List<Produtos> produtos;
 
-  Pedidos(DateTime pedido, List<Produtos> produto) {
+  Pedidos(DateTime pedido, List<Produtos> produtos) {
     this.pedido = pedido;
-    this.produto = produto;
+    this.produtos = produtos;
   }
 }
