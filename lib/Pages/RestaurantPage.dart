@@ -59,7 +59,9 @@ class ExtractArgumentsScreen extends StatelessWidget {
                     children: <Widget>[
                       RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
                       Spacer(),
-                      RoundButton(icon: Icons.favorite_border, onTap: () {favoritos.add(args.restaurante);},),
+                      RoundButton(
+                        icon: favoritos.contains(args.restaurante) ? Icons.favorite : Icons.favorite_border,
+                        onTap: () {favoritos.add(args.restaurante);},),
                       SizedBox(width: 5.0),
                       RoundButton(icon: Icons.ac_unit),
                     ],
