@@ -8,7 +8,8 @@ const userModel = new Schema({
     endereco: String,
     cep: String,
     cpf: String,
-    senha: String
+    senha: String,
+    permissao: String
 })
 
 export default userModel
