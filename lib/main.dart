@@ -5,12 +5,15 @@ import 'package:food/Pages/RestaurantListPage.dart';
 import 'package:food/Pages/Profile.dart';
 import 'package:food/Pages/RestaurantPage.dart';
 import 'package:food/Pages/MainPage.dart';
+import 'package:food/Pages/Login.dart';
+
 import 'data.dart';
 
 void main() {
   runApp(MaterialApp(
     title: "Using tabs",
-    home: MyHome(),
+    //home: MyHome(),
+    home: LoginScreen(),
     theme: ThemeData(
       primarySwatch: Colors.orange,
       fontFamily: 'Montserrat',
@@ -18,7 +21,8 @@ void main() {
     routes: {
       ExtractArgumentsScreen.routeName: (context) => ExtractArgumentsScreen(),
       'profile': (ctx) => Profile(),
-      'newProduct': (ctx) => CreateProductPage()
+      'newProduct': (ctx) => CreateProductPage(),
+      'home': (ctx) => MyHome(),
     },
   ));
 }
