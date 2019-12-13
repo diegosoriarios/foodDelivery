@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const userModel = new Schema({
+const User = new Schema({
     nome: String,
     email: String,
     celular: Numeric,
@@ -12,4 +12,4 @@ const userModel = new Schema({
     permissao: String
 })
 
-export default userModel
+export default User

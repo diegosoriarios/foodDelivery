@@ -16,6 +16,7 @@ void main() {
     //home: MyHome(),
     //home: LoginScreen(),
     home: Splash(),
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       primarySwatch: Colors.orange,
       fontFamily: 'Montserrat',

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const restaurantModel = new Schema({
+const Restaurante = new Schema({
     nome: String,
     imagem: String,
     categoria: String,
@@ -9,4 +9,4 @@ const restaurantModel = new Schema({
     horarios: ObjectId
 })
 
-export default restaurantModel
+export default Restaurante
