@@ -2,7 +2,7 @@ import 'package:food/Modelos/Produtos.dart';
 import 'package:food/Modelos/Restaurant.dart';
 import 'package:food/Modelos/User.dart';
 
-List<String> buttonsTitle = ["All", "Popular", "Dessert", "Snack", "Fast Food"];
+List<String> buttonsTitle = ["Todos", "Popular", "Dessert", "Snack", "Fast Food"];
 /*List<String> restaurantList = [
   "American Restaurant",
   "Turkish Restaurant",

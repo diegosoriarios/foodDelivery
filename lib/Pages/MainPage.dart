@@ -28,9 +28,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  HomeState createState() => HomeState();
+}
+class HomeState extends State<Home> {
   static final date = new DateTime.now();
   String currentDay = date.day.toString() + "/" + date.month.toString() + "/" + date.year.toString();
+  List<Restaurante> lista;
+  int _active = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    lista = restaurantList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,15 +177,35 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 15.0),
-                CategoriesList(),
+                //CategoriesList(),
+                Container(
+                  height: 55,
+                  child: ListView.builder(
+                    itemCount: buttonsTitle.length,
+                    itemBuilder: (BuildContext context, int id) {
+                      return MyCustomButton(
+                        title: buttonsTitle[id],
+                        active: id == _active ? true : false,
+                        onTap: () {
+                          setState(() {
+                            _active = id;
+                            lista = updateList(id);
+                          });
+                        },
+                      );
+                    },
+                    scrollDirection: Axis.horizontal,
+                  ),
+                ),
                 SizedBox(height: 15.0),
+                //CategoriesItem(),
                 Container(
                   height: 181,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: restaurantList.length,
+                    itemCount: lista.length,
                     itemBuilder: (context, id) {
-                      return SmallContainer(restaurante: restaurantList[id],);
+                      return SmallContainer(restaurante: lista[id],);
                     },
                   ),
                 ),
@@ -183,6 +216,14 @@ class Home extends StatelessWidget {
         ),
       ),
     );
+  }
+  
+  List<Restaurante> updateList(_active) {
+    if (buttonsTitle[_active] == "Todos") {
+      return restaurantList;
+    } else {
+      return restaurantList.where((i) => i.categoria == buttonsTitle[_active]).toList();
+    }
   }
 }
 
@@ -390,8 +431,17 @@ class CategoriesList extends StatefulWidget {
 
 class _CategoriesListState extends State<CategoriesList> {
   int _active = 0;
+  
+  @override
+  void initState() {
+    super.initState();
+    favoritos = restaurantList;
+  }
+  
+
   @override
   Widget build(BuildContext context) {
+    print(favoritos);
     return Container(
       height: 55,
       child: ListView.builder(
@@ -403,6 +453,7 @@ class _CategoriesListState extends State<CategoriesList> {
             onTap: () {
               setState(() {
                 _active = id;
+                favoritos = restaurantList.where((i) => i.categoria == buttonsTitle[_active]).toList();
               });
             },
           );
