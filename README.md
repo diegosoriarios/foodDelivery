@@ -18,7 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 
 ## TODO
 
-- [] Criar Servidor
+- [ ] Criar Servidor
 - [x] SplashScreen
-- [] Icones
-- [] Tela de pedido
+- [ ] Icones
+- [ ] Tela de pedido
