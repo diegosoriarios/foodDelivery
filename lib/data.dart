@@ -30,6 +30,8 @@ List<Restaurante> restaurantList = [
 
 List<Restaurante> favoritos = [];
 
+List<Produtos> cart = [];
+
 User usuario = User("Diego Soria Rios", 'diegosoriarios@gmail.com', "54 991907331", "Rua Fagundes dos Reis 220", "99010070", "", "123456", "restaurante");
 
 bool userIsLogged = !true;

@@ -3,15 +3,25 @@ import 'package:food/Modelos/Restaurant.dart';
 import 'package:food/Pages/MainPage.dart';
 import 'package:food/data.dart';
 
-class RestaurantListPage extends StatelessWidget {
+class Cart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: new Container(),
+        title: Text(
+          "Favoritos",
+          style: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 17
+          ),
+        ),
+      ),
       body: GridView.count(
         crossAxisCount: 2,
-        children: List.generate(restaurantList.length, (index) {
+        children: List.generate(favoritos.length, (index) {
           return Center(
-            child: GridListItem(restaurante: restaurantList[index],)
+            child: GridListItem(restaurante: favoritos[index],)
           );
         }),
       )

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food/Pages/CreateProductPage.dart';
 import 'package:food/Pages/FavoritesPage.dart';
-import 'package:food/Pages/RestaurantListPage.dart';
+import 'package:food/Pages/Cart.dart';
 import 'package:food/Pages/Profile.dart';
 import 'package:food/Pages/RestaurantPage.dart';
 import 'package:food/Pages/MainPage.dart';
@@ -77,7 +77,7 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: _renderFloatingActionButton(),
       body: TabBarView(
-        children: <Widget>[MyApp(), RestaurantListPage(), FavoritesPage(), Profile()],
+        children: <Widget>[MyApp(), Cart(), FavoritesPage(), Profile()],
         controller: controller,
       ),
       bottomNavigationBar: BottomAppBar(
@@ -90,10 +90,10 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
               icon: Icon(Icons.home, color: Colors.black),
             ),
             Tab(
-              icon: Icon(Icons.list, color: Colors.black),
+              icon: Icon(Icons.favorite_border, color: Colors.black),
             ),
             Tab(
-              icon: Icon(Icons.favorite_border, color: Colors.black),
+              icon: Icon(Icons.shopping_cart, color: Colors.black),
             ),
             Tab(
               icon: Icon(Icons.person_outline, color: Colors.black),

@@ -221,22 +221,30 @@ class ExtractProductsArgumentsScreen extends StatelessWidget {
                             boxShadow: [
                               BoxShadow(blurRadius: 5.0, color: Colors.orange)
                             ]),
-                        child: Row(
-                          children: <Widget>[
-                            Spacer(),
-                            Text(
-                              "Fazer Pedido",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
+                        child: GestureDetector(
+                          child: Row(
+                            children: <Widget>[
+                              Spacer(),
+                              Text(
+                                "Fazer Pedido",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold, fontSize: 21),
-                            ),
-                            Spacer(),
-                            Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            )
-                          ],
+                                  fontWeight: FontWeight.bold, fontSize: 21
+                                ),
+                              ),
+                              Spacer(),
+                              Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                              )
+                            ]
+                          ),
+                          onTap: (() {
+                            cart.add(item);
+                            Navigator.pop(context);
+                            print(cart);
+                          }), 
                         ),
                       ),
                     ),

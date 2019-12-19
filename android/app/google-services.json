@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "760229318045",
+    "firebase_url": "https://chinainboxprod.firebaseio.com",
+    "project_id": "chinainboxprod",
+    "storage_bucket": "chinainboxprod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760229318045:android:e5d88119dd2c0dc48c7374",
+        "android_client_info": {
+          "package_name": "com.example.food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760229318045-f1p4ioje1bui1mke80u0oaq83i6qfalf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAazgnYjw_N-tv9gChxTaqKZ8BVcGq7i60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760229318045-f1p4ioje1bui1mke80u0oaq83i6qfalf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
