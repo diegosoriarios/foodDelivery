@@ -77,7 +77,7 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: _renderFloatingActionButton(),
       body: TabBarView(
-        children: <Widget>[MyApp(), Cart(), FavoritesPage(), Profile()],
+        children: <Widget>[MyApp(), FavoritesPage(), Cart(), Profile()],
         controller: controller,
       ),
       bottomNavigationBar: BottomAppBar(
