@@ -226,7 +226,7 @@ class ExtractProductsArgumentsScreen extends StatelessWidget {
                             children: <Widget>[
                               Spacer(),
                               Text(
-                                "Fazer Pedido",
+                                "Adicionar ao Carrinho",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.white,

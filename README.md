@@ -22,3 +22,5 @@ samples, guidance on mobile development, and a full API reference.
 - [x] SplashScreen
 - [ ] Icones
 - [ ] Tela de pedido
+- [ ] Checkout
+- [ ] Endereços
