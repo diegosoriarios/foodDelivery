@@ -23,8 +23,9 @@ class ProductContainer extends StatelessWidget {
           )
         ),
         child: Container(
-          height: 179,
-          width: MediaQuery.of(context).size.width / 2.5,
+          //height: 179,
+          height: MediaQuery.of(context).size.height * .05,
+          width: MediaQuery.of(context).size.width * .35,
           margin: EdgeInsets.symmetric(horizontal: 5.0),
           padding: EdgeInsets.all(5.0),
           decoration: BoxDecoration(
@@ -45,16 +46,12 @@ class ProductContainer extends StatelessWidget {
                 child: Image.asset(produtos.imagem),
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              SizedBox(
-                height: 9.0,
-              ),
+              Spacer(),
               Text(
                 produtos.nome,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
-              SizedBox(
-                height: 9.0,
-              ),
+              Spacer(),
               Row(
                 children: <Widget>[
                   Container(

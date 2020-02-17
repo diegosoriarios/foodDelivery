@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food/Pages/CreateProductPage.dart';
 import 'package:food/Pages/FavoritesPage.dart';
 import 'package:food/Pages/Cart.dart';
+import 'package:food/Pages/Pagamento.dart';
 import 'package:food/Pages/Profile.dart';
 import 'package:food/Pages/RestaurantPage.dart';
 import 'package:food/Pages/MainPage.dart';
@@ -26,6 +27,7 @@ void main() {
       'profile': (ctx) => Profile(),
       'newProduct': (ctx) => CreateProductPage(),
       'home': (ctx) => MyHome(),
+      'pagamento': (ctx) => Pagamento(),
       'open': (ctx) {
         if(userIsLogged) {
           return MyHome();

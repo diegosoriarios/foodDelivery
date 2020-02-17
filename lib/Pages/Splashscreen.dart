@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:food/main.dart';
 
 class Splash extends StatefulWidget {
   @override
@@ -45,6 +43,7 @@ class _SplashScreenState extends State<Splash> {
   /// Navigate to Home screen.
   void navigateToHomeScreen() {
     /// Push home screen and replace (close/exit) splash screen.
-    Navigator.pushNamed(context, 'open');
+    //Navigator.pushReplacementNamed(context, 'open');
+    Navigator.pushReplacementNamed(context, 'home');
   }
 }

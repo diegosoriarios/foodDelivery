@@ -85,7 +85,7 @@ class ExtractProductsArgumentsScreen extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.all(25),
-                height: MediaQuery.of(context).size.height / 2,
+                height: MediaQuery.of(context).size.height * .6,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -143,9 +143,7 @@ class ExtractProductsArgumentsScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
-                      height: 11,
-                    ),
+                    Spacer(),
                     Row(
                       children: <Widget>[
                         CircleAvatar(
@@ -195,9 +193,9 @@ class ExtractProductsArgumentsScreen extends StatelessWidget {
                         children: list
                       ),
                     ),*/
-                    SizedBox(height: 15.0),
+                    Spacer(),
                     Container(
-                      height: 181,
+                      height: 139,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: args.produtos.ingredientes.length,
