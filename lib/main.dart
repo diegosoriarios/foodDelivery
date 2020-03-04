@@ -69,6 +69,14 @@ class MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
         ),
         onPressed: () => Navigator.pushNamed(context, 'newProduct'),
       );
+    } else if (cart.length != 0) {
+      return FloatingActionButton(
+        child: const Icon(
+          Icons.monetization_on,
+          color: Colors.white,
+        ),
+        onPressed: () => Navigator.pushNamed(context, 'finalizar'),
+      );
     } else return null;
   }
 
